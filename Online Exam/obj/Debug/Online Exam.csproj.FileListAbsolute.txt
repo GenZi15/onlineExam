@@ -1,0 +1,18 @@
+c:\users\akhdan rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\bin\Debug\Online Exam.exe.config
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\bin\Debug\Online Exam.exe
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\bin\Debug\Online Exam.pdb
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Properties.Resources.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formChangePassword.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formExam.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formLogin.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formMainMenu.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formManageNilai.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formManageSoal.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formManageSoalAdd.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formProfile.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formUjian.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online Exam.csproj.GenerateResource.Cache
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online Exam.exe
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online Exam.pdb
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online_Exam.Wireframe.formBankSoal.resources
+C:\Users\Akhdan Rasiq\documents\visual studio 2015\Projects\Online Exam\Online Exam\obj\Debug\Online Exam.csprojResolveAssemblyReference.cache

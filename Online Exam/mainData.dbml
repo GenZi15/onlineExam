@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="onlineExam" Class="mainDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=onlineExam;Integrated Security=True" SettingsObjectName="Online_Exam.Properties.Settings" SettingsPropertyName="onlineExamConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AksesMapel" Member="AksesMapels">
+    <Type Name="AksesMapel">
+      <Column Name="idMapel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idGuru" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Mapel_AksesMapel" Member="Mapel" ThisKey="idMapel" OtherKey="idMapel" Type="Mapel" IsForeignKey="true" />
+      <Association Name="Guru_AksesMapel" Member="Guru" ThisKey="idGuru" OtherKey="idGuru" Type="Guru" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kelas" Member="Kelas">
+    <Type Name="Kelas">
+      <Column Name="idKelas" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="namaKelas" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Association Name="Kelas_AksesKelas" Member="AksesKelas" ThisKey="idKelas" OtherKey="idKelas" Type="AksesKelas" />
+      <Association Name="Kelas_HeaderSoal" Member="HeaderSoals" ThisKey="idKelas" OtherKey="idKelas" Type="HeaderSoal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mapel" Member="Mapels">
+    <Type Name="Mapel">
+      <Column Name="idMapel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="namaMapel" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Kkm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Mapel_AksesMapel" Member="AksesMapels" ThisKey="idMapel" OtherKey="idMapel" Type="AksesMapel" />
+      <Association Name="Mapel_HeaderSoal" Member="HeaderSoals" ThisKey="idMapel" OtherKey="idMapel" Type="HeaderSoal" />
+      <Association Name="Mapel_DetailSoal" Member="DetailSoals" ThisKey="idMapel" OtherKey="idMapel" Type="DetailSoal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Siswa" Member="Siswas">
+    <Type Name="Siswa">
+      <Column Name="idSiswa" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fullName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="kelas" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="idDetailKelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Siswa_Ujian" Member="Ujians" ThisKey="idSiswa" OtherKey="idSiswa" Type="Ujian" />
+      <Association Name="detailKela_Siswa" Member="detailKela" ThisKey="idDetailKelas" OtherKey="idDetailKelas" Type="detailKela" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AksesKelas" Member="AksesKelas">
+    <Type Name="AksesKelas">
+      <Column Name="idKelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idGuru" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Kelas_AksesKelas" Member="Kelas" ThisKey="idKelas" OtherKey="idKelas" Type="Kelas" IsForeignKey="true" />
+      <Association Name="Guru_AksesKelas" Member="Guru" ThisKey="idGuru" OtherKey="idGuru" Type="Guru" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Guru" Member="Gurus">
+    <Type Name="Guru">
+      <Column Name="idGuru" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fullName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Guru_AksesMapel" Member="AksesMapels" ThisKey="idGuru" OtherKey="idGuru" Type="AksesMapel" />
+      <Association Name="Guru_AksesKelas" Member="AksesKelas" ThisKey="idGuru" OtherKey="idGuru" Type="AksesKelas" />
+      <Association Name="Guru_HeaderSoal" Member="HeaderSoals" ThisKey="idGuru" OtherKey="idGuru" Type="HeaderSoal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ujian" Member="Ujians">
+    <Type Name="Ujian">
+      <Column Name="idUjian" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idSoal" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idSiswa" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tglPengerjaan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="nilai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Siswa_Ujian" Member="Siswa" ThisKey="idSiswa" OtherKey="idSiswa" Type="Siswa" IsForeignKey="true" />
+      <Association Name="HeaderSoal_Ujian" Member="HeaderSoal" ThisKey="idSoal" OtherKey="idSoal" Type="HeaderSoal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detailKelas" Member="detailKelas">
+    <Type Name="detailKela">
+      <Column Name="idDetailKelas" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="noKelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="detailKela_Siswa" Member="Siswas" ThisKey="idDetailKelas" OtherKey="idDetailKelas" Type="Siswa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HeaderSoal" Member="HeaderSoals">
+    <Type Name="HeaderSoal">
+      <Column Name="idSoal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idMapel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idGuru" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idDetailSoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TglDibuat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jmlSoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idKelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HeaderSoal_Ujian" Member="Ujians" ThisKey="idSoal" OtherKey="idSoal" Type="Ujian" />
+      <Association Name="Guru_HeaderSoal" Member="Guru" ThisKey="idGuru" OtherKey="idGuru" Type="Guru" IsForeignKey="true" />
+      <Association Name="Kelas_HeaderSoal" Member="Kelas" ThisKey="idKelas" OtherKey="idKelas" Type="Kelas" IsForeignKey="true" />
+      <Association Name="Mapel_HeaderSoal" Member="Mapel" ThisKey="idMapel" OtherKey="idMapel" Type="Mapel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailSoal" Member="DetailSoals">
+    <Type Name="DetailSoal">
+      <Column Name="idDetailSoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idNoSoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idMapel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pertanyaan" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanB" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanC" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanE" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="jawabanBenar" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="idPrimary" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Mapel_DetailSoal" Member="Mapel" ThisKey="idMapel" OtherKey="idMapel" Type="Mapel" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
